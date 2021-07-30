@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../ui/theme/color.dart';
-import '../ui/theme/font.dart';
+import '../ui/ui.dart';
 
 class DayContainer extends StatelessWidget {
   final String day;
@@ -15,11 +14,18 @@ class DayContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(
+        top:10,
+        bottom: 10,
+        left: 3.5,
+        right: 3.5,
+      ),
+      alignment: Alignment.center,
       decoration: BoxDecoration(
         color: AppColor.lightGreenColor,
         borderRadius: BorderRadius.circular(5),
       ),
-      width: 46,
+      width: 45,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -34,10 +40,13 @@ class DayContainer extends StatelessWidget {
                 style: AppTextTheme.darkTextTheme.headline3,
               ),
               Container(
-                margin: const EdgeInsets.all(10),
-                padding: const EdgeInsets.all(10),
-                width: double.infinity,
-                height: 1,
+                margin: const EdgeInsets.only(
+                  left: 15,
+                  right: 15,
+                  bottom: 5,
+                  top: 5,
+                ),
+                height: 1.5,
                 color: AppColor.whiteColor,
               ),
             ],

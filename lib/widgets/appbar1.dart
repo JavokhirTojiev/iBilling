@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import '../ui/screens/search.dart';
-import '../ui/theme/color.dart';
-import '../ui/theme/font.dart';
-import '../ui/screens/filter.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../ui/ui.dart';
+
 
 class TopBar1 extends StatelessWidget {
   final String title;

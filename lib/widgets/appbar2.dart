@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../ui/theme/color.dart';
-import '../ui/theme/font.dart';
+import '../ui/ui.dart';
+
 
 class TopBar2 extends StatelessWidget {
   final String title;

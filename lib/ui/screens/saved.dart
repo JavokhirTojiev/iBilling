@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../theme/color.dart';
-import '../../components/empty.dart';
-import '../../widgets/appbar1.dart';
+import '../ui.dart';
+import '../../components/components.dart';
+import '../../widgets/widgets.dart';
 
 class Saved extends StatelessWidget {
   static const routeName = '/saved';
@@ -24,7 +24,6 @@ class Saved extends StatelessWidget {
         children: <Widget>[
           Container(),
           const Expanded(
-
             child: Empty(
                 title: 'No saved contracts',
                 location: 'assets/icons/nosaved.svg'),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../ui/theme/font.dart';
+import '../ui/ui.dart';
+
 
 enum SingingCharacter { uzb, rus, usa }
 

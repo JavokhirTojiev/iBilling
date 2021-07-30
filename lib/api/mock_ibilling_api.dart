@@ -14,7 +14,6 @@ class MockiBillingApi {
         json.decode(await getJsonAsString('assets/sample/ibilling.json'));
 
     final contractResponse = ContractResponse.fromJson(mockDataDecoded);
-
     return contractResponse.contracts;
   }
 

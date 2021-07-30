@@ -1,32 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import '../ui/ui.dart';
 
-class Checker extends StatefulWidget {
-  final String text;
+class CustomCheckBox extends StatefulWidget {
+  final String status;
 
-  const Checker({Key? key, required this.text}) : super(key: key);
+  const CustomCheckBox({
+    Key? key,
+    required this.status,
+  }) : super(key: key);
 
   @override
-  _CheckerState createState() => _CheckerState();
+  _CustomCheckBoxState createState() => _CustomCheckBoxState();
 }
 
-class _CheckerState extends State<Checker> {
-  bool _checkbox = false;
+class _CustomCheckBoxState extends State<CustomCheckBox> {
+  bool _isSelected = true;
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(10.0),
-      child: Row(
-        children: <Widget>[
-          Checkbox(
-            value: _checkbox,
-            onChanged: (value) {
-              setState(() {
-                _checkbox = !_checkbox;
-              });
-            },
-          ),
-           const Text('text'),
-        ],
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _isSelected = !_isSelected;
+        });
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 25.0),
+        child: Row(
+          children: [
+            _isSelected
+                ? SvgPicture.asset(
+                    'assets/icons/inactive_check.svg',
+                  )
+                : SvgPicture.asset(
+                    'assets/icons/active_check.svg',
+                  ),
+            const SizedBox(width: 10),
+            _isSelected
+                ? Text(widget.status,
+                    style: AppTextTheme.darkTextTheme.bodyText2)
+                : Text(widget.status,
+                    style: AppTextTheme.darkTextTheme.headline3),
+          ],
+        ),
       ),
     );
   }

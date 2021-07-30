@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../theme/color.dart';
-import '../theme/font.dart';
-import '../../widgets/language_selector.dart';
-
-import '../../widgets/appbar2.dart';
+import '../ui.dart';
+import '../../widgets/widgets.dart';
 
 class Profile extends StatelessWidget {
   static const routeName = '/profile';

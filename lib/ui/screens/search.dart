@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../components/empty.dart';
-import 'starter.dart';
-import '../theme/color.dart';
+import '../../components/components.dart';
+import '../ui.dart';
 
 class SearchBar extends StatelessWidget {
   static const routeName = '/search';

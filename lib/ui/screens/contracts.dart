@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../components/contracts_data.dart';
-import '../theme/color.dart';
-import '../../components/calendar.dart';
-import '../../widgets/appbar1.dart';
+import '../../components/components.dart';
+import '../../widgets/widgets.dart';
+import '../ui.dart';
+
 
 class Contracts extends StatelessWidget {
   static const routeName = '/contracts';
@@ -25,11 +25,6 @@ class Contracts extends StatelessWidget {
         children: [
           const Calendar(),
           const ContractsData(),
-          // const Expanded(
-          //   child: Empty(
-          //       title: 'No contracts are made',
-          //       location: 'assets/icons/noitem.svg'),
-          // ),
         ],
       ),
       //bottomNavigationBar: NavigationBar(),

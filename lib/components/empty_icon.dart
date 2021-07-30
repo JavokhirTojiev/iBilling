@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../ui/theme/color.dart';
-import '../ui/theme/font.dart';
+import '../ui/ui.dart';
 
 class Empty extends StatelessWidget {
   final String title;

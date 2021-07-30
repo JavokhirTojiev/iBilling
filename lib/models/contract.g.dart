@@ -23,12 +23,12 @@ ContractItem _$ContractItemFromJson(Map<String, dynamic> json) {
   return ContractItem(
     fullName: json['full_name'] as String,
     contractStatus: json['contract_status'] as String,
-    amount: json['amount'] as int,
+    amount: json['amount'] as String,
     lastInvoice: json['last_invoice'] as int,
     invoiceAmount: json['invoice_amount'] as int,
     address: json['address'] as String,
     createdAt: json['created_at'] as String,
-    organizationItn: json['organization_itn'] as int,
+    organizationITN: json['organization_itn'] as int,
   );
 }
 
@@ -41,5 +41,5 @@ Map<String, dynamic> _$ContractItemToJson(ContractItem instance) =>
       'invoice_amount': instance.invoiceAmount,
       'address': instance.address,
       'created_at': instance.createdAt,
-      'organization_itn': instance.organizationItn,
+      'organization_itn': instance.organizationITN,
     };

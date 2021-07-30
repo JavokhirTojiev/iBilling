@@ -24,7 +24,6 @@ class IbillingServiceBloc
   ) async* {
     if (event is Load) {
       yield IbillingServiceLoading();
-
       try {
         await getContract();
         yield IbillingServiceLoaded(getContract);

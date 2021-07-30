@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../ui/theme/color.dart';
-import '../ui/theme/font.dart';
+import '../ui/ui.dart';
+
 
 class Done extends StatefulWidget {
   const Done({Key? key}) : super(key: key);

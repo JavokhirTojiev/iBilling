@@ -20,7 +20,7 @@ class ContractItem {
   String fullName;
   @JsonKey(name: 'contract_status')
   String contractStatus;
-  int amount;
+  String amount;
   @JsonKey(name: 'last_invoice')
   int lastInvoice;
   @JsonKey(name: 'invoice_amount')
@@ -29,7 +29,7 @@ class ContractItem {
   @JsonKey(name: 'created_at')
   String createdAt;
   @JsonKey(name: 'organization_itn')
-  int organizationItn;
+  int organizationITN;
 
   ContractItem({
     required this.fullName,
@@ -39,7 +39,7 @@ class ContractItem {
     required this.invoiceAmount,
     required this.address,
     required this.createdAt,
-    required this.organizationItn,
+    required this.organizationITN,
   });
 
   factory ContractItem.fromJson(Map<String, dynamic> json) =>

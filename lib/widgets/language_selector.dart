@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'language_submit.dart';
-import '../ui/theme/color.dart';
-import '../ui/theme/font.dart';
-import 'language_options.dart';
+import '../ui/ui.dart';
+import 'widgets.dart';
 
 class Selector extends StatelessWidget {
   const Selector({Key? key}) : super(key: key);
@@ -22,14 +20,14 @@ class Selector extends StatelessWidget {
             context: context,
             builder: (BuildContext context) {
               return AlertDialog(
+                backgroundColor: AppColor.darkColor,
                 content: Stack(
                   children: <Widget>[
-                    // Form(
-                    //   key: _formKey,
-                    //   child:
                     Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
+                        Text('Choose a language',
+                            style: AppTextTheme.darkTextTheme.headline2),
                         const RadioOption(),
                         const Done(),
                       ],

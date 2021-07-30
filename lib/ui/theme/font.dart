@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'color.dart';
+import '../ui.dart';
 
 class AppTextTheme {
-  static TextTheme darkTextTheme =  const TextTheme(
+  static TextTheme darkTextTheme = const TextTheme(
     bodyText1: TextStyle(
       fontSize: 14.0,
       fontWeight: FontWeight.w500,
@@ -41,7 +41,7 @@ class AppTextTheme {
     headline6: TextStyle(
       fontSize: 18.0,
       fontWeight: FontWeight.w500,
-      color:  AppColor.lightGreenColor,
+      color: AppColor.lightGreenColor,
     ),
   );
 }

@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../widgets/creater.dart';
-import '../theme/color.dart';
-import 'contracts.dart';
-import 'history.dart';
-import 'profile.dart';
-import 'saved.dart';
-import 'new.dart';
+import '../../widgets/widgets.dart';
+import '../ui.dart';
+
 
 class Starter extends StatefulWidget {
   static const routeName = '/starter';

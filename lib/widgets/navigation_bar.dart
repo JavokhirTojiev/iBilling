@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import '../ui/theme/color.dart';
-import '../ui/screens/contracts.dart';
-import '../ui/screens/history.dart';
-import '../ui/screens/profile.dart';
-import '../ui/screens/saved.dart';
-import '../components/bar_button.dart';
+import '../ui/ui.dart';
+import '../components/components.dart';
 
 class NavigationBar extends StatefulWidget {
   const NavigationBar({Key? key}) : super(key: key);

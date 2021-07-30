@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import '../theme/color.dart';
-import '../theme/font.dart';
-import 'starter.dart';
-import '../../components/checkbox.dart';
+import '../ui.dart';
+import '../../components/components.dart';
 
 class Filter extends StatefulWidget {
   static const routeName = '/filter';
@@ -19,6 +17,7 @@ class _FilterState extends State<Filter> {
     return Scaffold(
       backgroundColor: AppColor.darkWorld,
       appBar: AppBar(
+        backgroundColor: AppColor.darkestColor,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -32,31 +31,75 @@ class _FilterState extends State<Filter> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.symmetric(
+          vertical: 30,
+          horizontal: 15,
+        ),
         child: Column(
           children: [
-            Text(
-              'Status',
-              style: AppTextTheme.darkTextTheme.headline3,
+            Container(
+              padding: const EdgeInsets.only(bottom: 20.0),
+              alignment: Alignment.topLeft,
+              child:
+                  Text('Status', style: AppTextTheme.darkTextTheme.bodyText2),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Checker(text: 'Paid'),
-                const Checker(text: 'Paid'),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const CustomCheckBox(status: 'Paid'),
+                    const CustomCheckBox(status: 'In Process'),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const CustomCheckBox(status: 'Rejected by IQ'),
+                    const CustomCheckBox(status: 'Rejected by Payme'),
+                  ],
+                ),
               ],
             ),
+            const CalendarFilter(),
+            const Spacer(),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Checker(text: 'Paid'),
-                const Checker(text: 'Paid'),
+                Container(
+                  decoration: BoxDecoration(
+                    color: AppColor.darkGreenColor,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  width: MediaQuery.of(context).size.width * 0.44,
+                  height: MediaQuery.of(context).size.width * 0.12,
+                  child: MaterialButton(
+                    onPressed: () {},
+                    child: Text('Cancel',
+                        style: AppTextTheme.darkTextTheme.headline3,
+                    textAlign: TextAlign.center,),
+                  ),
+                ),
+                const Spacer(),
+                Container(
+                  decoration: BoxDecoration(
+                    color: AppColor.lightGreenColor,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  width: MediaQuery.of(context).size.width * 0.44,
+                  height: MediaQuery.of(context).size.width * 0.12,
+                  child: MaterialButton(
+                    onPressed: () {},
+                    child: Text('Apply Filters',
+                      style: AppTextTheme.darkTextTheme.headline3,
+                      textAlign: TextAlign.center,),
+                  ),
+                ),
               ],
             ),
           ],
         ),
       ),
-      //bottomNavigationBar: const NavigationBar(),
     );
   }
 }

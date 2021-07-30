@@ -1,48 +1,63 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import '../ui/theme/color.dart';
+import '../components/components.dart';
+import '../models/contract.dart';
+import '../ui/ui.dart';
 
 class ContractContainer extends StatelessWidget {
-  final int lastInvoice;
-  final String contractStatus;
+  ContractItem contractItem;
 
-  // ignore: use_key_in_widget_constructors
-  const ContractContainer(
-      {Key? key, required this.lastInvoice, required this.contractStatus})
-      : super(key: key);
+  ContractContainer({
+    Key? key,
+    required this.contractItem,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 148,
-      margin: const EdgeInsets.only(
-        top: 10,
-        left: 10,
-        right: 10,
-      ),
+      height: 150,
+      padding: const EdgeInsets.all(10),
+      margin: const EdgeInsets.only(top: 10),
       color: AppColor.darkerColor,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 10.0, right: 10),
-        child: Column(
-          children: [
-            Row(
+      child: Column(
+        children: [
+          ContractStatus(
+            lastInvoice: contractItem.lastInvoice,
+            contractStatus: contractItem.contractStatus,
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SvgPicture.asset('assets/icons/blank.svg'),
-                Text('№ $lastInvoice'),
-                const Spacer(),
-                Chip(
-                  label: Text(
-                    contractStatus,
-                    style: const TextStyle(
-                      color: Color(0XFF49B7A5),
+                ContractText(
+                  basic: 'Fish:',
+                  secondary: contractItem.fullName,
+                ),
+                ContractText(
+                  basic: 'Amount:',
+                  secondary: '${contractItem.amount}',
+                ),
+                ContractText(
+                  basic: 'Last invoice:',
+                  secondary: '№ ${contractItem.lastInvoice}',
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ContractText(
+                      basic: 'Number of invoice:',
+                      secondary: '${contractItem.invoiceAmount}',
                     ),
-                  ),
+                    ContractText(
+                      basic: '',
+                      secondary: '${contractItem.createdAt}',
+                    ),
+                  ],
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

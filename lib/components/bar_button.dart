@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../ui/theme/color.dart';
-import '../ui/theme/font.dart';
-
+import '../ui/ui.dart';
 
 class BarButton extends StatelessWidget {
   final String location;
@@ -27,7 +25,7 @@ class BarButton extends StatelessWidget {
             Text(
               title,
               style: AppTextTheme.darkTextTheme.headline4,
-            )
+            ),
           ],
         ),
         onPressed: () {

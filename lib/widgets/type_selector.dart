@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../ui/theme/color.dart';
-import '../ui/theme/font.dart';
+import '../ui/ui.dart';
+
 
 class TypeSelector extends StatelessWidget {
   const TypeSelector({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class TypeSelector extends StatelessWidget {
     return Row(
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 15),
+          padding: const EdgeInsets.only(top: 5),
           child: MaterialButton(
             onPressed: () {},
             child: Container(
@@ -30,7 +30,7 @@ class TypeSelector extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 15),
+          padding: const EdgeInsets.only(top: 5),
           child: MaterialButton(
             onPressed: () {},
             child: Container(
