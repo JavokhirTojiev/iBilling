@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:ibilling/ui/screens/new_contract.dart';
+import 'package:ibilling/ui/screens/new_invoice.dart';
+import '../ui/theme/constant.dart';
 import '../ui/ui.dart';
 
 class Creater extends StatefulWidget {
@@ -33,6 +36,8 @@ class _CreaterState extends State<Creater> {
                       child: MaterialButton(
                         color: AppColor.darkGrey,
                         onPressed: () {
+                          Constants.titles[2]= 'New Contract';
+                          Constants.pages[2]= const NewContract();
                           Navigator.of(context).pop();
                         },
                         child: Row(
@@ -51,6 +56,8 @@ class _CreaterState extends State<Creater> {
                       child: MaterialButton(
                         color: AppColor.darkGrey,
                         onPressed: () {
+                          Constants.titles[2]= 'New Invoice';
+                          Constants.pages[2]= const NewInvoice();
                           Navigator.of(context).pop();
                         },
                         child: Row(

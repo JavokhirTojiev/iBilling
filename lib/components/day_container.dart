@@ -4,11 +4,12 @@ import '../ui/ui.dart';
 class DayContainer extends StatelessWidget {
   final String day;
   final String date;
+  final isActive;
 
   const DayContainer({
     Key? key,
     required this.day,
-    required this.date,
+    required this.date, this.isActive,
   }) : super(key: key);
 
   @override
@@ -22,7 +23,7 @@ class DayContainer extends StatelessWidget {
       ),
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: AppColor.lightGreenColor,
+        color: isActive ? AppColor.lightGreenColor : Colors.transparent,
         borderRadius: BorderRadius.circular(5),
       ),
       width: 45,

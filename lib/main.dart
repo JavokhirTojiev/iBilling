@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'bloc/ibilling_service_bloc.dart';
-import 'ui/screens/search.dart';
-import 'ui/screens/saved.dart';
+import '../../blocs/blocs.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'ui/screens/starter.dart';
-import 'ui/screens/history.dart';
-import 'ui/screens/profile.dart';
-import 'ui/screens/filter.dart';
 
-import 'ui/screens/contracts.dart';
-
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  runApp(
+    EasyLocalization(
+        supportedLocales: [
+          const Locale('uz', 'UZB'),
+          const Locale('en', 'US'),
+          const Locale('ru', 'RUS'),
+        ],
+        path: 'assets/translation',
+        fallbackLocale: const Locale('en', 'US'),
+        child: const MyApp()),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -27,26 +33,32 @@ class _MyAppState extends State<MyApp> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) => IbillingServiceBloc()
+          create: (_) => ContractBlocPart()
             ..add(
-              Load(),
+              LoadContract(),
+            ),
+        ),
+        BlocProvider(
+          create: (_) => HistoryBlocPart()
+            ..add(
+              InitializeHistoryEvent(),
+            ),
+        ),
+        BlocProvider(
+          create: (_) => LocalBlocPart()
+            ..add(
+              LocalEvent(),
             ),
         ),
       ],
       child: MaterialApp(
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
         debugShowCheckedModeBanner: false,
         title: 'iBilling',
         theme: ThemeData.dark(),
-        routes: {
-          '/': (context) => const Starter(),
-          Starter.routeName: (context) => const Starter(),
-          Contracts.routeName: (context) => const Contracts(),
-          Filter.routeName: (context) => const Filter(),
-          History.routeName: (context) => const History(),
-          Saved.routeName: (context) => const Saved(),
-          Profile.routeName: (context) => const Profile(),
-          SearchBar.routeName: (context) => const SearchBar(),
-        },
+        home: const Starter(),
       ),
     );
   }

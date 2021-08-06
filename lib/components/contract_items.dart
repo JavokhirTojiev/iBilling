@@ -4,9 +4,9 @@ import '../models/contract.dart';
 import '../ui/ui.dart';
 
 class ContractContainer extends StatelessWidget {
-  ContractItem contractItem;
+  final ContractItem contractItem;
 
-  ContractContainer({
+  const ContractContainer({
     Key? key,
     required this.contractItem,
   }) : super(key: key);

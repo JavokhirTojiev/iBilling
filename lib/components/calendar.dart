@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../blocs/blocs.dart';
 import 'package:jiffy/jiffy.dart';
 import '../ui/ui.dart';
 import '../components/components.dart';
@@ -13,7 +15,12 @@ class Calendar extends StatefulWidget {
 }
 
 class _CalendarState extends State<Calendar> {
-  var pickedDate = DateTime.now();
+  DateTime pickedDate = DateTime.now().subtract(
+    Duration(
+      days: (DateTime.now().weekday - 1),
+    ),
+  );
+  var _selectedIndex = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +46,9 @@ class _CalendarState extends State<Calendar> {
                   IconButton(
                       onPressed: () {
                         setState(() {
+                          _selectedIndex = -1;
                           pickedDate = pickedDate.subtract(
-                            const Duration(days: 6),
+                            const Duration(days: 7),
                           );
                         });
                       },
@@ -48,8 +56,9 @@ class _CalendarState extends State<Calendar> {
                   IconButton(
                       onPressed: () {
                         setState(() {
+                          _selectedIndex = -1;
                           pickedDate = pickedDate.add(
-                            const Duration(days: 6),
+                            const Duration(days: 7),
                           );
                         });
                       },
@@ -60,20 +69,35 @@ class _CalendarState extends State<Calendar> {
           ),
           Expanded(
             child: ListView.separated(
-              separatorBuilder: (context, index) => const SizedBox(
-                width: 10,
-              ),
-              scrollDirection: Axis.horizontal,
-              itemCount: 6,
-              itemBuilder: (context, index) => DayContainer(
-                day: Jiffy(
-                  pickedDate.add(Duration(days: index)).toString(),
-                ).format('E'),
-                date: Jiffy(
-                  pickedDate.add(Duration(days: index)).toString(),
-                ).format('dd'),
-              ),
-            ),
+                separatorBuilder: (context, index) => const SizedBox(
+                      width: 10,
+                    ),
+                scrollDirection: Axis.horizontal,
+                itemCount: 6,
+                itemBuilder: (context, index) {
+                  final pickedIndexDay = pickedDate.add(Duration(days: index));
+                  final pickedIndexDate = pickedDate.add(Duration(days: index));
+                  return InkWell(
+                    onTap: () {
+                      setState(() {
+                        _selectedIndex = index;
+                        BlocProvider.of<ContractBlocPart>(context).setDate =
+                            pickedIndexDay.toString();
+                        BlocProvider.of<ContractBlocPart>(context).add(
+                            FilterByDate(pickedIndexDay.toString()));
+                      });
+                    },
+                    child: DayContainer(
+                      isActive: _selectedIndex == index,
+                      day: Jiffy(
+                        pickedIndexDay,
+                      ).format('E'),
+                      date: Jiffy(
+                        pickedIndexDate,
+                      ).format('dd'),
+                    ),
+                  );
+                }),
           ),
         ],
       ),

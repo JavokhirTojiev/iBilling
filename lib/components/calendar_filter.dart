@@ -6,12 +6,13 @@ import '../ui/ui.dart';
 class CalendarFilter extends StatelessWidget {
   const CalendarFilter({Key? key}) : super(key: key);
 
+
   void _showDatePicker(BuildContext context) {
     showDatePicker(
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(2000),
-      lastDate: DateTime(DateTime.now().add(const Duration(days: 1000)).year),
+      lastDate: DateTime(DateTime.now().add(const Duration(days: 365)).year),
     );
   }
 

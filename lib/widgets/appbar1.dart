@@ -42,8 +42,11 @@ class TopBar1 extends StatelessWidget {
                   iconLeft,
                 ),
                 onPressed: () {
-                  Navigator.of(context)
-                      .pushReplacementNamed(Filter.routeName);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Filter()),
+                  );
                 },
               ),
               SvgPicture.asset('assets/icons/line.svg'),
@@ -52,8 +55,11 @@ class TopBar1 extends StatelessWidget {
                   iconRight,
                 ),
                 onPressed: () {
-                  Navigator.of(context)
-                      .pushReplacementNamed(SearchBar.routeName);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SearchBar()),
+                  );
                 },
               ),
             ],

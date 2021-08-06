@@ -4,7 +4,7 @@ import '../../components/components.dart';
 import '../../widgets/widgets.dart';
 
 class Saved extends StatelessWidget {
-  static const routeName = '/saved';
+
 
   const Saved({Key? key}) : super(key: key);
 
@@ -12,13 +12,13 @@ class Saved extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.darkWorld,
-      appBar: const PreferredSize(
+      appBar:  PreferredSize(
         child: TopBar1(
-          title: 'Saved',
+          title: Constants.titles[3],
           iconLeft: 'assets/icons/filter.svg',
           iconRight: 'assets/icons/search.svg',
         ),
-        preferredSize: Size.fromHeight(kToolbarHeight),
+        preferredSize: const Size.fromHeight(kToolbarHeight),
       ),
       body: Column(
         children: <Widget>[

@@ -3,7 +3,7 @@ import '../ui.dart';
 import '../../components/components.dart';
 
 class Filter extends StatefulWidget {
-  static const routeName = '/filter';
+  // static const routeName = '/filter';
 
   const Filter({Key? key}) : super(key: key);
 
@@ -21,8 +21,7 @@ class _FilterState extends State<Filter> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.of(context).pushReplacementNamed(Starter.routeName);
-            //Navigator.of(context).pop();
+            Navigator.of(context).pop();
           },
         ),
         title: Text(
@@ -74,10 +73,14 @@ class _FilterState extends State<Filter> {
                   width: MediaQuery.of(context).size.width * 0.44,
                   height: MediaQuery.of(context).size.width * 0.12,
                   child: MaterialButton(
-                    onPressed: () {},
-                    child: Text('Cancel',
-                        style: AppTextTheme.darkTextTheme.headline3,
-                    textAlign: TextAlign.center,),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(
+                      'Cancel',
+                      style: AppTextTheme.darkTextTheme.headline3,
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
                 const Spacer(),
@@ -89,10 +92,14 @@ class _FilterState extends State<Filter> {
                   width: MediaQuery.of(context).size.width * 0.44,
                   height: MediaQuery.of(context).size.width * 0.12,
                   child: MaterialButton(
-                    onPressed: () {},
-                    child: Text('Apply Filters',
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(
+                      'Apply Filters',
                       style: AppTextTheme.darkTextTheme.headline3,
-                      textAlign: TextAlign.center,),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
               ],

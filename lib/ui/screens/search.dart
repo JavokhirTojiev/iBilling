@@ -3,7 +3,7 @@ import '../../components/components.dart';
 import '../ui.dart';
 
 class SearchBar extends StatelessWidget {
-  static const routeName = '/search';
+  // static const routeName = '/search';
 
   const SearchBar({Key? key}) : super(key: key);
 
@@ -12,28 +12,18 @@ class SearchBar extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColor.darkWorld,
       appBar: AppBar(
-        toolbarHeight: 60,
+        backgroundColor: AppColor.darkestColor,
         title: PreferredSize(
           child: Row(
             children: [
-              IconButton(
-                icon: const Icon(
-                  Icons.arrow_back,
-                  color: AppColor.whiteColor,
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushReplacementNamed(Starter.routeName);
-                },
-                //onPressed: () => Navigator.of(context).pop(),
-              ),
               Container(
                 padding: const EdgeInsets.only(
                   top: 20,
                   left: 10,
-                  right: 10,
+                  right: 20,
                 ),
                 height: 40,
-                width: MediaQuery.of(context).size.width * 0.66,
+                width: MediaQuery.of(context).size.width * 0.65,
                 child: TextFormField(
                   cursorColor: AppColor.whiteColor,
                   decoration: const InputDecoration(
@@ -61,14 +51,14 @@ class SearchBar extends StatelessWidget {
                   color: AppColor.whiteColor,
                 ),
                 onPressed: () {
-                  Navigator.of(context).pushReplacementNamed(Starter.routeName);
+                  Navigator.of(context).pop();
                 },
-                //onPressed: () => Navigator.of(context).pop(),
               ),
             ],
           ),
           preferredSize: const Size.fromHeight(kToolbarHeight),
         ),
+
       ),
       body: Column(
         children: <Widget>[

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../../widgets/widgets.dart';
 import '../ui.dart';
 
-
 class Starter extends StatefulWidget {
-  static const routeName = '/starter';
-
   const Starter({Key? key}) : super(key: key);
 
   @override
@@ -15,19 +13,11 @@ class Starter extends StatefulWidget {
 
 class _StarterState extends State<Starter> {
   int _selectedIndex = 0;
-  static final List<Widget> _pages = <Widget>[
-    const Contracts(),
-    const History(),
-    const New(),
-    const Saved(),
-    const Profile(),
-  ];
-
   void _onItemTapped(int index) async {
     if (index == 2) {
       await showDialog(
         context: context,
-        builder: (ctx) {
+        builder: (context) {
           return Container(
             padding: const EdgeInsets.all(15),
             decoration: BoxDecoration(
@@ -50,7 +40,7 @@ class _StarterState extends State<Starter> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: _pages.elementAt(_selectedIndex),
+        child: Constants.pages[_selectedIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -65,7 +55,7 @@ class _StarterState extends State<Starter> {
                 : SvgPicture.asset(
                     'assets/icons/contacts.svg',
                   ),
-            label: 'Contracts',
+            label: 'contract'.tr(),
           ),
           BottomNavigationBarItem(
             icon: _selectedIndex == 1
@@ -75,7 +65,7 @@ class _StarterState extends State<Starter> {
                 : SvgPicture.asset(
                     'assets/icons/history.svg',
                   ),
-            label: 'History',
+            label: 'history'.tr(),
           ),
           BottomNavigationBarItem(
             icon: _selectedIndex == 2
@@ -85,7 +75,7 @@ class _StarterState extends State<Starter> {
                 : SvgPicture.asset(
                     'assets/icons/new.svg',
                   ),
-            label: 'New',
+            label: 'news'.tr(),
           ),
           BottomNavigationBarItem(
             icon: _selectedIndex == 3
@@ -95,18 +85,17 @@ class _StarterState extends State<Starter> {
                 : SvgPicture.asset(
                     'assets/icons/saved.svg',
                   ),
-            label: 'Saved',
+            label: 'saved'.tr(),
           ),
           BottomNavigationBarItem(
-            icon: _selectedIndex == 4
-                ? SvgPicture.asset(
-                    'assets/icons/profile1.svg',
-                  )
-                : SvgPicture.asset(
-                    'assets/icons/profile.svg',
-                  ),
-            label: 'Profile',
-          ),
+              icon: _selectedIndex == 4
+                  ? SvgPicture.asset(
+                      'assets/icons/profile1.svg',
+                    )
+                  : SvgPicture.asset(
+                      'assets/icons/profile.svg',
+                    ),
+              label: 'profile'.tr()),
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,

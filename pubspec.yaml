@@ -15,10 +15,13 @@ dependencies:
   flutter_svg: ^0.22.0
   equatable: ^2.0.3
   cupertino_icons: ^1.0.2
+  easy_localization: ^3.0.0
   json_serializable: ^4.1.4
   json_annotation: ^4.0.1
   bloc: ^7.0.0
   flutter_bloc: ^7.0.1
+  shared_preferences: ^2.0.6
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -32,6 +35,7 @@ flutter:
     - assets/icons/
     - assets/flags/
     - assets/sample/
+    - assets/translation/
 
   fonts:
     - family: 'Ubuntu'

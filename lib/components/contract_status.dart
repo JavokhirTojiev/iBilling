@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../ui/theme/color.dart';
+import '../widgets/widgets.dart';
 
 class ContractStatus extends StatelessWidget {
   final int lastInvoice;
@@ -26,25 +26,7 @@ class ContractStatus extends StatelessWidget {
             ),
           ],
         ),
-        Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: AppColor.lighterGreen),
-          child: Padding(
-            padding: const EdgeInsets.only(
-              top: 3.0,
-              bottom: 3.0,
-              left: 10,
-              right: 10.0,
-            ),
-            child: Text(
-              contractStatus,
-              style: const TextStyle(
-                color: AppColor.lightGreenColor,
-              ),
-            ),
-          ),
-        ),
+        StatusIndicator(contractStatus: contractStatus),
       ],
     );
   }
